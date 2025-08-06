@@ -17,15 +17,11 @@ The environment (`environment.py`) is a $5\\times5$ grid with:
 - Use `plots.py` to generate:
   - **Policy heatmaps** showing the learned policy for each $p$ (arrows indicate actions in each state; H and G are hazard and goal) and 
   - **Risk-Return curves** comparing final average return and risk (mean-$L_p$ cost).
-  
-The figure below shows an example of the learned policies for different $p$ values, and a comparison of the final risk and return:
-
-:contentReference[oaicite:0]{index=0} *Figure 1: Learned policies for varying risk norm $p$. For low $p$ (risk-neutral), the agent takes the shorter path through the hazard (downward arrows through H). For high $p$, the policy avoids H by detouring (arrows go right at S to circumvent hazard). Hazard (H) and Goal (G) states are highlighted.*  
-
-:contentReference[oaicite:1]{index=1} *Figure 2: Trade-off between return and risk as $p$ varies. As $p$ increases, the mean-$L_p$ risk (red, plotted as cost) is reduced at the expense of lower average return (blue). Higher $p$ makes the agent increasingly risk-averse, approaching the safe policy's performance.*  
+ 
 
 ## Extending the Code
 - The risk probability and penalty can be adjusted in `environment.py` to simulate different hazard severities.
 - Additional risk measures (e.g., CVaR) can be implemented by modifying the constraint term in the policy gradient (e.g., replacing $C^p$ with an indicator for CVaR threshold exceedance).
 - For larger or more complex environments, consider function approximation for the policy (e.g., neural network) and use `PrimalDualPG` as a template for implementing constrained policy optimization.
+
 
